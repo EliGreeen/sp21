@@ -14,6 +14,10 @@ public class IntListExercises {
             head.first += c;
             head = head.rest;
         }
+        while(head.rest == null){
+            head.first += c;
+            break;
+        }
     }
 
     /**
@@ -50,12 +54,18 @@ public class IntListExercises {
      *  the first digit of x.
      */
     public static boolean firstDigitEqualsLastDigit(int x) {
-        int lastDigit = x % 10;
-        while (x > 10) {
-            x = x / 10;
+        if(x == 10){
+            return false;
         }
-        int firstDigit = x % 10;
-        return firstDigit == lastDigit;
+        else {
+            int lastDigit = x % 10;
+
+            while (x > 10) {
+                x = x / 10;
+            }
+            int firstDigit = x % 10;
+            return firstDigit == lastDigit;
+        }
     }
 
     /**
